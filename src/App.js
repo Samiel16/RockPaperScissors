@@ -4,10 +4,10 @@ import PlayerCard from './PlayerCard';
 class Game extends Component {
   constructor() {
     super();
-    this.signs = ["Rock", "Scissors", "Paper"];
+    this.signs = ["rock", "scissors", "paper"];
     this.state={
-      playerOne: "Rock",
-      playerTwo: "Paper",
+      playerOne: "rock",
+      playerTwo: "paper",
     }
   }
 
@@ -21,13 +21,13 @@ class Game extends Component {
   }
 
   decideWinner = () => {
-    const playerOne = this.state.playerOne;
-    const playerTwo = this.state.playerTwo;
-      if(playerOne === playerTwo) {
+    const playerone = this.state.playerOne;
+    const playertwo = this.state.playerTwo;
+      if(playerone === playertwo) {
         return "It's a tie";
-      }else if((playerOne === "Rock" && playerTwo === "Scissors") ||
-      (playerOne === "Scissors" && playerTwo === "Paper") ||
-      (playerOne === "Paper" && playerTwo === "Rock")){
+      }else if((playerone === "rock" && playertwo === "scissors") ||
+      (playerone === "scissors" && playertwo === "paper") ||
+      (playerone === "paper" && playertwo === "rock")){
         return "Player 1 wins!";
       } else{
         return "Player 2 wins!"
@@ -41,7 +41,7 @@ class Game extends Component {
           <PlayerCard sign={this.state.playerOne}/>
           <PlayerCard sign={this.state.playerTwo}/>
         </div>
-        <div className="winner">This is the winner!</div>
+        <div className="winner">{this.decideWinner()}</div>
         <button type="button" onClick={this.playGame}>Play the Game</button>
       </div>
     )
